@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 6f;
     public float jumpForce = 12f;
     public float coyoteTime = 0.1f;
 
@@ -12,45 +12,69 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isGrounded;
-    private bool doubleJumpUsed;
     private float lastGroundedTime;
-    private PlayerPowerUps _powerUps;
+    private bool doubleJumpUsed;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        _powerUps = GetComponent<PlayerPowerUps>();
     }
 
     void Update()
     {
+        HandleMovement();
+        HandleJump();
+        HandleFlip();
+    }
+
+    void HandleMovement()
+    {
+        float move = Input.GetAxisRaw("Horizontal");
+        rb.linearVelocity = new Vector2(move * moveSpeed, rb.linearVelocity.y);
+    }
+
+    void HandleJump()
+    {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
         if (isGrounded)
         {
-            doubleJumpUsed = false;
             lastGroundedTime = Time.time;
+            doubleJumpUsed = false;
         }
 
-        float speedMultiplier = _powerUps != null ? _powerUps.CurrentSpeedMultiplier : 1f;
-
-        // Movement
-        float move = Input.GetAxisRaw("Horizontal");
-        rb.linearVelocity = new Vector2(move * moveSpeed * speedMultiplier, rb.linearVelocity.y);
-
-        // Jump
         bool wantJump = Input.GetKeyDown(KeyCode.Space);
         bool canCoyoteJump = Time.time - lastGroundedTime <= coyoteTime;
-        bool hasDoubleJump = _powerUps != null && _powerUps.HasDoubleJump;
 
-        if (wantJump && (isGrounded || canCoyoteJump))
+        if (wantJump)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            doubleJumpUsed = false;
+            if (isGrounded || canCoyoteJump)
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            }
+            else if (!doubleJumpUsed)
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                doubleJumpUsed = true; // mark double jump as used
+            }
         }
-        else if (wantJump && hasDoubleJump && !doubleJumpUsed)
-        {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            doubleJumpUsed = true;
-        }
+    }
+
+    void HandleFlip()
+    {
+        float move = Input.GetAxisRaw("Horizontal");
+
+        if (move > 0)
+            transform.localScale = new Vector3(1, 1, 1);
+        else if (move < 0)
+            transform.localScale = new Vector3(-1, 1, 1);
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (groundCheck == null) return;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
     }
 }

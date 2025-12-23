@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: dacd4c42da8b62a41b196369b1b76cae
+guid: 63e35d3b5c13f3449be5b4b585e1da9c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9159206189965348280
-    second: AlienForest_0
+      213: -8878624494578567007
+    second: flash_0
+  - first:
+      213: 8504309265159174943
+    second: flash_1
+  - first:
+      213: 6077532500722106475
+    second: flash_2
+  - first:
+      213: -5782270120520801934
+    second: flash_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AlienForest_0
+      name: flash_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1024
-        height: 1024
+        x: 30
+        y: 211
+        width: 97
+        height: 213
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +137,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8427e8e6f76f3e080800000000000000
-      internalID: -9159206189965348280
+      spriteID: 1a8ff8a201ac8c480800000000000000
+      internalID: -8878624494578567007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flash_1
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 0
+        width: 352
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1b30e90830650670800000000000000
+      internalID: 8504309265159174943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flash_2
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 381
+        width: 88
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b60ce68fb9bb75450800000000000000
+      internalID: 6077532500722106475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flash_3
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 183
+        width: 68
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 271a00f06ff31cfa0800000000000000
+      internalID: -5782270120520801934
       vertices: []
       indices: 
       edges: []
@@ -148,7 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      AlienForest_0: -9159206189965348280
+      flash_0: -8878624494578567007
+      flash_1: 8504309265159174943
+      flash_2: 6077532500722106475
+      flash_3: -5782270120520801934
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

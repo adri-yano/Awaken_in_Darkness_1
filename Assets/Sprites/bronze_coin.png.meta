@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8d2523edbf9b44247af86c7c15312441
+guid: ebe2a028996a8954b9ac031af6408826
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3450346637385359977
-    second: desertSky_0
+      213: -5881360091707521632
+    second: bronze_coin_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: desertSky_0
+      name: bronze_coin_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
-        height: 1024
+        width: 105
+        height: 103
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 79d9ea69308ed10d0800000000000000
-      internalID: -3450346637385359977
+      spriteID: 0a54d994826316ea0800000000000000
+      internalID: -5881360091707521632
       vertices: []
       indices: 
       edges: []

@@ -123,8 +123,8 @@ Transform:
   m_GameObject: {fileID: 7948860831355432956}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -9, y: -1, z: 0}
+  m_LocalScale: {x: 2.5, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9058790529432573496}
@@ -156,7 +156,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &6416409689487054540
 BoxCollider2D:
@@ -192,7 +192,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -4.074771, y: -0.06783438}
+  m_Offset: {x: -0.28723913, y: 0.06745988}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -202,7 +202,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.7302208, y: 5.356492}
+  m_Size: {x: 0.8176403, y: 1.7876102}
   m_EdgeRadius: 0
 --- !u!114 &8629211462157937560
 MonoBehaviour:
@@ -216,9 +216,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4a97c23196e4cb49a1a3f3820a88110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  pointA: {fileID: 8364648288737019829}
-  pointB: {fileID: 2976680992081851236}
+  moveSpeed: 4
+  jumpForce: 8
+  obstacleCheckDistance: 0.7
+  groundCheckDistance: 0.3
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  contactDamage: 20
+  contactCooldown: 0.5
 --- !u!1 &8213484844609025654
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,8 +254,8 @@ Transform:
   m_GameObject: {fileID: 8213484844609025654}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.0682, y: -0.0658, z: 0}
-  m_LocalScale: {x: 1, y: 1.4, z: 1}
+  m_LocalPosition: {x: -0.29, y: 0.08, z: 0}
+  m_LocalScale: {x: 0.62150043, y: 0.4708085, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 329354864806094374}
@@ -296,7 +305,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3476d5700409fc344a314680d542b3c8, type: 3}
-  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: dacd4c42da8b62a41b196369b1b76cae
+guid: 9589f4bbb85be55439528abdd3312de6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9159206189965348280
-    second: AlienForest_0
+      213: 3340684741368923895
+    second: defence_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AlienForest_0
+      name: defence_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1024
-        height: 1024
+        x: 41
+        y: 9
+        width: 430
+        height: 494
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8427e8e6f76f3e080800000000000000
-      internalID: -9159206189965348280
+      spriteID: 7f6ccd3921f7c5e20800000000000000
+      internalID: 3340684741368923895
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      AlienForest_0: -9159206189965348280
+      defence_0: 3340684741368923895
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
