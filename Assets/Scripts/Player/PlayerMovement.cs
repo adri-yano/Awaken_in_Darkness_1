@@ -35,7 +35,11 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleJump()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        isGrounded = Physics2D.OverlapCircle(
+            groundCheck.position,
+            groundCheckRadius,
+            groundLayer
+        );
 
         if (isGrounded)
         {
@@ -55,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
             else if (!doubleJumpUsed)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-                doubleJumpUsed = true; // mark double jump as used
+                doubleJumpUsed = true;
             }
         }
     }

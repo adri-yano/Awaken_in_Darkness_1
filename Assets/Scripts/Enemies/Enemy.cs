@@ -45,7 +45,7 @@ public class AlienEnemy : MonoBehaviour
         // Direction to player
         float dir = Mathf.Sign(_player.position.x - transform.position.x);
 
-        // Move horizontally
+        // Move
         Vector2 vel = _rb.linearVelocity;
         vel.x = dir * moveSpeed;
         _rb.linearVelocity = vel;
@@ -54,7 +54,7 @@ public class AlienEnemy : MonoBehaviour
         if (ShouldJump(dir))
             Jump();
 
-        // Flip sprite
+        // Face player
         FaceDirection(dir);
     }
 
@@ -64,10 +64,12 @@ public class AlienEnemy : MonoBehaviour
 
         bool obstacleAhead = Physics2D.Raycast(origin, Vector2.right * dir, obstacleCheckDistance, obstacleLayer);
 
-        bool gapAhead = !Physics2D.Raycast(origin + Vector2.right * dir * 0.5f,
-                                            Vector2.down,
-                                            groundCheckDistance * 2f,
-                                            groundLayer);
+        bool gapAhead = !Physics2D.Raycast(
+            origin + Vector2.right * dir * 0.5f,
+            Vector2.down,
+            groundCheckDistance * 2f,
+            groundLayer
+        );
 
         return _isGrounded && (obstacleAhead || gapAhead);
     }
@@ -79,7 +81,7 @@ public class AlienEnemy : MonoBehaviour
 
     private void FaceDirection(float dir)
     {
-        if (Mathf.Approximately(dir, 0f)) return;
+        if (Mathf.Approximately(dir, 0)) return;
 
         Vector3 scale = transform.localScale;
         scale.x = Mathf.Abs(scale.x) * Mathf.Sign(dir);
