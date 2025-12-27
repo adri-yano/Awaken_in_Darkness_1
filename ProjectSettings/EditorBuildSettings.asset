@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Level_01_Lab.unity
     guid: 1feb3ea1036e632418b65a430de8ea06
   - enabled: 1
-    path: Assets/Scenes/Level_02_Forest.unity
-    guid: 1bdc5b48ea9d260419175d3ae00e40b0
+    path: Assets/Scenes/Level_02_CrystalForest.unity
+    guid: 9aa4b93e6ee12864b914026fbb7d7199
   - enabled: 1
     path: Assets/Scenes/Level_03_Desert.unity
     guid: 101ba139d0bd5294fb5e928f72271a2e
@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_05_Final King.unity
     guid: 9e9f9b1b0e5f1b040b83e9bff54e60f6
+  - enabled: 0
+    path: Assets/Scenes/Level_02_Forest.unity
+    guid: 1bdc5b48ea9d260419175d3ae00e40b0
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

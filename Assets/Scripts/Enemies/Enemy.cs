@@ -9,8 +9,8 @@ public class AlienEnemy : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed = 4f;
     public float jumpForce = 8f;
-    public float obstacleCheckDistance = 0.7f;
-    public float groundCheckDistance = 0.3f;
+    public float obstacleCheckDistance = 1f;
+    public float groundCheckDistance = 0.4f;
     public LayerMask groundLayer;
     public LayerMask obstacleLayer;
 
@@ -54,22 +54,26 @@ public class AlienEnemy : MonoBehaviour
         if (ShouldJump(dir))
             Jump();
 
-        // Face player
+        // Face direction
         FaceDirection(dir);
     }
 
     private bool ShouldJump(float dir)
     {
-        Vector2 origin = (Vector2)transform.position + Vector2.right * dir * 0.3f;
+        Vector2 feet = (Vector2)transform.position + Vector2.down * 0.1f;
+        Vector2 front = (Vector2)transform.position + Vector2.right * dir * 0.6f;
 
-        bool obstacleAhead = Physics2D.Raycast(origin, Vector2.right * dir, obstacleCheckDistance, obstacleLayer);
+        // Ground check
+        _isGrounded = Physics2D.Raycast(feet, Vector2.down, groundCheckDistance, groundLayer);
 
-        bool gapAhead = !Physics2D.Raycast(
-            origin + Vector2.right * dir * 0.5f,
-            Vector2.down,
-            groundCheckDistance * 2f,
-            groundLayer
-        );
+        // Obstacle in front
+        bool obstacleAhead = Physics2D.Raycast(front, Vector2.right * dir, obstacleCheckDistance, obstacleLayer);
+
+        // Gap check
+        bool gapAhead = !Physics2D.Raycast(front, Vector2.down, groundCheckDistance * 2, groundLayer);
+
+        Debug.DrawRay(front, Vector2.right * dir * obstacleCheckDistance, Color.red);
+        Debug.DrawRay(front, Vector2.down * (groundCheckDistance * 2), Color.yellow);
 
         return _isGrounded && (obstacleAhead || gapAhead);
     }
@@ -83,9 +87,9 @@ public class AlienEnemy : MonoBehaviour
     {
         if (Mathf.Approximately(dir, 0)) return;
 
-        Vector3 scale = transform.localScale;
-        scale.x = Mathf.Abs(scale.x) * Mathf.Sign(dir);
-        transform.localScale = scale;
+        Vector3 s = transform.localScale;
+        s.x = Mathf.Abs(s.x) * Mathf.Sign(dir);
+        transform.localScale = s;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -101,6 +105,10 @@ public class AlienEnemy : MonoBehaviour
     private void TryDamagePlayer(Collider2D collider)
     {
         if (Time.time - _lastHitTime < contactCooldown)
+            return;
+
+        PlayerMovement player = collider.GetComponent<PlayerMovement>();
+        if (player != null && player.HasShield())
             return;
 
         PlayerHealth health = collider.GetComponent<PlayerHealth>();
