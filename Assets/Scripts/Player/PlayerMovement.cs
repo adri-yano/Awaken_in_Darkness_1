@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayer;
 
     [Header("Sliding")]
-    public float slideSpeedMultiplier = 1.4f;
+    public float slideSpeedMultiplier = 1.2f;
     public float slideColliderHeight = 0.5f;
     private bool isSliding;
 
@@ -85,36 +85,57 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    //---------------- SLIDE ----------------//
     void HandleSlide()
     {
-        bool slideKey = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
+        bool slideKey = Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S);
 
-        if (slideKey && isGrounded && !isSliding)
+        if (slideKey && !isSliding)
             StartSlide();
 
         if (!slideKey && isSliding)
             StopSlide();
+
+        // While sliding, tilt left/right if moving
+        if (isSliding)
+        {
+            float move = Input.GetAxisRaw("Horizontal");
+
+            if (move > 0)
+                transform.rotation = Quaternion.Euler(0, 0, -70);   // MORE tilt
+            else if (move < 0)
+                transform.rotation = Quaternion.Euler(0, 0, 70);    // MORE tilt
+            else
+                transform.rotation = Quaternion.Euler(0, 0, -60);   // crouch tilt
+        }
     }
 
     void StartSlide()
     {
+        if (!isGrounded) return;
+
         isSliding = true;
 
-        // NO ROTATION = no flicker
-        col.size = new Vector2(col.size.x, slideColliderHeight);
-        col.offset = new Vector2(col.offset.x, -0.2f);
+        // shrink collider
+        col.size = new Vector2(col.size.x, 0.35f);   // even smaller
+        col.offset = new Vector2(col.offset.x, -0.5f);
     }
 
     void StopSlide()
     {
         isSliding = false;
 
+        transform.rotation = Quaternion.identity;
+
         col.size = new Vector2(col.size.x, originalColliderHeight);
         col.offset = originalColliderOffset;
     }
+    //----------------------------------------//
 
     void HandleFlip()
     {
+        if (isSliding) return; // don't flip while sliding
+
         float move = Input.GetAxisRaw("Horizontal");
 
         if (move > 0)

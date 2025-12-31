@@ -115,7 +115,7 @@ public class AlienEnemy : MonoBehaviour
         if (health != null)
         {
             _lastHitTime = Time.time;
-            health.ApplyDamage(contactDamage);
+            health.TakeDamage(contactDamage);
         }
     }
 }

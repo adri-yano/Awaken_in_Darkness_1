@@ -53,7 +53,7 @@ public class DroneEnemy : MonoBehaviour
         if (health != null)
         {
             lastHitTime = Time.time;
-            health.ApplyDamage(damage);
+            health.TakeDamage(damage);
         }
     }
 }

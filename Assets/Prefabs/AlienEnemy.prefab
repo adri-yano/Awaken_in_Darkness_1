@@ -216,10 +216,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4a97c23196e4cb49a1a3f3820a88110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 3
   jumpForce: 10
-  obstacleCheckDistance: 1.2
-  groundCheckDistance: 0.3
+  obstacleCheckDistance: 1
+  groundCheckDistance: 0.4
   groundLayer:
     serializedVersion: 2
     m_Bits: 8

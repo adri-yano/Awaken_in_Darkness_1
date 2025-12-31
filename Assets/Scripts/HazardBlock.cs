@@ -10,7 +10,7 @@ public class HazardBlock : MonoBehaviour
 
         if (health != null)
         {
-            health.ApplyDamage(damage);
+            health.TakeDamage(damage);
         }
     }
 }

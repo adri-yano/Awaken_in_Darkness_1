@@ -18,9 +18,10 @@ public class PlayerHealth : MonoBehaviour
         OnHealthChanged?.Invoke(currentHealth, maxHealth); // Notify UI at start
     }
 
-    public void ApplyDamage(int amount)
+    // Required method
+    public void TakeDamage(float damage)
     {
-        currentHealth -= amount;
+        currentHealth -= (int)damage;
 
         // Notify UI
         OnHealthChanged?.Invoke(currentHealth, maxHealth);

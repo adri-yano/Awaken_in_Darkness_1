@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3558609167977901279}
   - component: {fileID: 2394351071980584971}
   - component: {fileID: 7862345634529651943}
+  - component: {fileID: 6576168897572446179}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -124,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad73c84a18c0863468b4c2d52f3fd3e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 5
   jumpForce: 15
   coyoteTime: 0.1
   groundCheck: {fileID: 3249270628240402362}
@@ -132,6 +133,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  slideSpeedMultiplier: 1.2
+  slideColliderHeight: 0.5
 --- !u!212 &3558609167977901279
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -215,7 +218,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxXP: 100
-  currentXP: 0
+  currentXP: 30
+--- !u!70 &6576168897572446179
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853806675435941801}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.0047971853, y: -0.008448559}
+  m_Size: {x: 1.513803, y: 4.0556397}
+  m_Direction: 0
 --- !u!1 &2586334051420349913
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,7 +312,7 @@ Transform:
   m_GameObject: {fileID: 8800063144581846617}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.32, y: -2.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
