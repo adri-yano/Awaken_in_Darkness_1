@@ -134,14 +134,14 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleFlip()
     {
-        if (isSliding) return; // don't flip while sliding
+        if (isSliding) return;
 
         float move = Input.GetAxisRaw("Horizontal");
+        if (move == 0) return;
 
-        if (move > 0)
-            transform.localScale = new Vector3(1, 1, 1);
-        else if (move < 0)
-            transform.localScale = new Vector3(-1, 1, 1);
+        Vector3 scale = transform.localScale;
+        scale.x = Mathf.Abs(scale.x) * (move > 0 ? 1 : -1);
+        transform.localScale = scale;
     }
 
     public bool HasShield() => shieldActive;
