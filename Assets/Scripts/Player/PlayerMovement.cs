@@ -31,11 +31,12 @@ public class PlayerMovement : MonoBehaviour
 
     private float originalColliderHeight;
     private Vector2 originalColliderOffset;
-
+    private PowerUpUIController ui;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<CapsuleCollider2D>();
+        ui = GetComponent<PowerUpUIController>();
 
         originalColliderHeight = col.size.y;
         originalColliderOffset = col.offset;
@@ -150,32 +151,51 @@ public class PlayerMovement : MonoBehaviour
     // ---- POWER UPS ----
     public IEnumerator TemporarySpeed(float m, float d)
     {
+        ui.ShowSpeed(true);
+
         float original = moveSpeed;
         moveSpeed *= m;
+
         yield return new WaitForSeconds(d);
+
         moveSpeed = original;
+        ui.ShowSpeed(false);
     }
 
     public IEnumerator EnableDoubleJump(float d)
     {
         doubleJumpEnabled = true;
+        ui.ShowDoubleJump(true);
+
         yield return new WaitForSeconds(d);
+
         doubleJumpEnabled = false;
+        ui.ShowDoubleJump(false);
     }
 
     public IEnumerator Shield(float d)
     {
         shieldActive = true;
+        ui.ShowShield(true);
+
         yield return new WaitForSeconds(d);
+
         shieldActive = false;
+        ui.ShowShield(false);
     }
 
     public IEnumerator Invisibility(float duration, int enemyLayer)
     {
         invisible = true;
+        ui.ShowCloak(true);
+
         Physics2D.IgnoreLayerCollision(gameObject.layer, enemyLayer, true);
+
         yield return new WaitForSeconds(duration);
+
         invisible = false;
+        ui.ShowCloak(false);
+
         Physics2D.IgnoreLayerCollision(gameObject.layer, enemyLayer, false);
     }
 }
