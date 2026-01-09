@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: afee8d83c6be9eb4e8773849de58a0e5
+guid: 7b3c3c5911503c14dbcc02b11884772a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4637708014649052790
-    second: aliendog_0
+      213: 5812698199516636304
+    second: alien_dog_run_2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: aliendog_0
+      name: alien_dog_run_2_0
       rect:
         serializedVersion: 2
         x: 21
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 67e83212ed27c5040800000000000000
-      internalID: 4637708014649052790
+      spriteID: 094edb8273adaa050800000000000000
+      internalID: 5812698199516636304
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      aliendog_0: 4637708014649052790
+      alien_dog_run_2_0: 5812698199516636304
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

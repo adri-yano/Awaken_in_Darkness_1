@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class AlienDog : MonoBehaviour
 {
-    public float followSpeed = 3f;
-    public float attackSpeed = 2f;
+    public float followSpeed = 6f;
+    public float attackSpeed = 4f;
     public int damage = 1;
     public float detectRange = 5f;
 
@@ -27,11 +27,17 @@ public class AlienDog : MonoBehaviour
         {
             ChasePlayer();
         }
+        if (player.position.x > transform.position.x)
+            transform.localScale = new Vector3(1, 1, 1);
+        else
+            transform.localScale = new Vector3(-1, 1, 1);
     }
 
     void FollowPlayer()
     {
-        Vector2 target = player.position;
+        Vector2 followOffset = new Vector2(-0.8f, 0f); // dog stays behind player
+        Vector2 target = (Vector2)player.position + followOffset;
+
         transform.position = Vector2.MoveTowards(
             transform.position,
             target,

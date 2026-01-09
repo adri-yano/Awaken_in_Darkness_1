@@ -265,11 +265,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9168377081117725581, guid: 9b542186173ac6440a435d41fdd21660, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.07
+      value: 47.79
       objectReference: {fileID: 0}
     - target: {fileID: 9168377081117725581, guid: 9b542186173ac6440a435d41fdd21660, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.91
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1280,8 +1280,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 618dcacbbe7d9344f8715876be46fd9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disappearDelay: 1.2
-  respawnTime: 4
+  disappearDelay: 4
+  respawnTime: 2
 --- !u!1 &517724826
 GameObject:
   m_ObjectHideFlags: 0
@@ -5068,6 +5068,7 @@ GameObject:
   - component: {fileID: 2114507489}
   - component: {fileID: 2114507488}
   - component: {fileID: 2114507487}
+  - component: {fileID: 2114507492}
   m_Layer: 0
   m_Name: aliendog
   m_TagString: Untagged
@@ -5087,7 +5088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281e1f1680854e946901971116ab3b7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followSpeed: 3
+  followSpeed: 8
   attackSpeed: 2
   damage: 1
   detectRange: 5
@@ -5099,14 +5100,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2114507486}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -5117,7 +5118,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &2114507489
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5208,7 +5209,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: afee8d83c6be9eb4e8773849de58a0e5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eb13158cbf322b84da31983890fb620f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5234,6 +5235,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 179.183, z: -1.043}
+--- !u!95 &2114507492
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114507486}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea7a72455fd6af742960c837505afacf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &2138341033
 PrefabInstance:
   m_ObjectHideFlags: 0
