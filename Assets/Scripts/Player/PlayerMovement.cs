@@ -31,12 +31,18 @@ public class PlayerMovement : MonoBehaviour
 
     private float originalColliderHeight;
     private Vector2 originalColliderOffset;
-    private PowerUpUIController ui;
+
+    [Header("UI Controller")]
+    public PowerUpUIController ui; // <-- Assign this in Inspector
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<CapsuleCollider2D>();
-        ui = GetComponent<PowerUpUIController>();
+
+        // Optional: dynamically find UI if not assigned
+        if (ui == null)
+            ui = FindObjectOfType<PowerUpUIController>();
 
         originalColliderHeight = col.size.y;
         originalColliderOffset = col.offset;
@@ -97,17 +103,16 @@ public class PlayerMovement : MonoBehaviour
         if (!slideKey && isSliding)
             StopSlide();
 
-        // While sliding, tilt left/right if moving
         if (isSliding)
         {
             float move = Input.GetAxisRaw("Horizontal");
 
             if (move > 0)
-                transform.rotation = Quaternion.Euler(0, 0, -70);   // MORE tilt
+                transform.rotation = Quaternion.Euler(0, 0, -70);
             else if (move < 0)
-                transform.rotation = Quaternion.Euler(0, 0, 70);    // MORE tilt
+                transform.rotation = Quaternion.Euler(0, 0, 70);
             else
-                transform.rotation = Quaternion.Euler(0, 0, -60);   // crouch tilt
+                transform.rotation = Quaternion.Euler(0, 0, -60);
         }
     }
 
@@ -117,8 +122,7 @@ public class PlayerMovement : MonoBehaviour
 
         isSliding = true;
 
-        // shrink collider
-        col.size = new Vector2(col.size.x, 0.35f);   // even smaller
+        col.size = new Vector2(col.size.x, 0.35f);
         col.offset = new Vector2(col.offset.x, -0.5f);
     }
 
@@ -151,7 +155,7 @@ public class PlayerMovement : MonoBehaviour
     // ---- POWER UPS ----
     public IEnumerator TemporarySpeed(float m, float d)
     {
-        ui.ShowSpeed(true);
+        ui?.ShowSpeed(true); // null-safe
 
         float original = moveSpeed;
         moveSpeed *= m;
@@ -159,42 +163,42 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(d);
 
         moveSpeed = original;
-        ui.ShowSpeed(false);
+        ui?.ShowSpeed(false);
     }
 
     public IEnumerator EnableDoubleJump(float d)
     {
         doubleJumpEnabled = true;
-        ui.ShowDoubleJump(true);
+        ui?.ShowDoubleJump(true);
 
         yield return new WaitForSeconds(d);
 
         doubleJumpEnabled = false;
-        ui.ShowDoubleJump(false);
+        ui?.ShowDoubleJump(false);
     }
 
     public IEnumerator Shield(float d)
     {
         shieldActive = true;
-        ui.ShowShield(true);
+        ui?.ShowShield(true);
 
         yield return new WaitForSeconds(d);
 
         shieldActive = false;
-        ui.ShowShield(false);
+        ui?.ShowShield(false);
     }
 
     public IEnumerator Invisibility(float duration, int enemyLayer)
     {
         invisible = true;
-        ui.ShowCloak(true);
+        ui?.ShowCloak(true);
 
         Physics2D.IgnoreLayerCollision(gameObject.layer, enemyLayer, true);
 
         yield return new WaitForSeconds(duration);
 
         invisible = false;
-        ui.ShowCloak(false);
+        ui?.ShowCloak(false);
 
         Physics2D.IgnoreLayerCollision(gameObject.layer, enemyLayer, false);
     }
