@@ -1,57 +1,53 @@
-using UnityEngine;
+﻿using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class AlienDog : MonoBehaviour
 {
     public float followSpeed = 6f;
-    public float attackSpeed = 4f;
-    public int damage = 1;
-    public float detectRange = 5f;
+    public float followDistance = 1.2f;
 
     private Transform player;
+    private Rigidbody2D rb;
+    private Animator anim;
     private bool isPet;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        float dist = Vector2.Distance(transform.position, player.position);
+        if (!isPet)
+        {
+            rb.linearVelocity = Vector2.zero;
+            anim.SetBool("isMoving", false);
+            return;
+        }
 
-        if (isPet)
+        float distance = Mathf.Abs(player.position.x - transform.position.x);
+
+        if (distance > followDistance)
         {
-            FollowPlayer();
+            float dir = Mathf.Sign(player.position.x - transform.position.x);
+            rb.linearVelocity = new Vector2(dir * followSpeed, 0);
+            anim.SetBool("isMoving", true);
+            Flip(dir);
         }
-        else if (dist < detectRange)
-        {
-            ChasePlayer();
-        }
-        if (player.position.x > transform.position.x)
-            transform.localScale = new Vector3(1, 1, 1);
         else
-            transform.localScale = new Vector3(-1, 1, 1);
+        {
+            rb.linearVelocity = Vector2.zero;
+            anim.SetBool("isMoving", false);
+        }
     }
 
-    void FollowPlayer()
+    void Flip(float dir)
     {
-        Vector2 followOffset = new Vector2(-0.8f, 0f); // dog stays behind player
-        Vector2 target = (Vector2)player.position + followOffset;
-
-        transform.position = Vector2.MoveTowards(
-            transform.position,
-            target,
-            followSpeed * Time.deltaTime
-        );
-    }
-
-    void ChasePlayer()
-    {
-        transform.position = Vector2.MoveTowards(
-            transform.position,
-            player.position,
-            attackSpeed * Time.deltaTime
-        );
+        Vector3 scale = transform.localScale;
+        scale.x = Mathf.Abs(scale.x) * dir;
+        transform.localScale = scale;
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -59,19 +55,10 @@ public class AlienDog : MonoBehaviour
         if (!col.CompareTag("Player")) return;
 
         PlayerPetHandler pet = col.GetComponent<PlayerPetHandler>();
-
-        // Feed the dog
-        if (!isPet && pet != null && pet.hasFood)
+        if (pet != null && pet.hasFood)
         {
             isPet = true;
             pet.hasFood = false;
-            gameObject.layer = LayerMask.NameToLayer("Player");
-            Debug.Log("Dog became pet!");
-            return;
         }
-
-        // Damage if hostile
-        if (!isPet)
-            col.GetComponent<PlayerHealth>()?.TakeDamage(damage);
     }
 }
