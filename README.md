@@ -1,95 +1,129 @@
-🕹️ Awaken in Darkness (Work in Progress)
+# 🌌 Awaken in Darkness
 
-Awaken in Darkness is a 2D adventure platformer currently under development in Unity.
-The player controls Nova, journeying through mysterious worlds filled with alien life, traps, and hidden dangers.
+<p align="center">
+  <img src="https://img.shields.io/badge/Engine-Unity%206-black?style=for-the-badge&logo=unity" />
+  <img src="https://img.shields.io/badge/Language-C%23-purple?style=for-the-badge&logo=c-sharp" />
+  <img src="https://img.shields.io/badge/Genre-2D%20Platformer-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Status-Completed%20Sample%20Project-success?style=for-the-badge" />
+</p>
 
-This project is still in its early development stage. Core environment setup is done and gameplay systems are currently being built.
+---
 
-🚧 Development Status
-✔️ Completed So Far
+## 🎮 About The Game
 
-Unity Project Setup
+**Awaken in Darkness** is a dark-themed **2D adventure platformer** developed in **Unity**.
+Players control **Nova**, a survivor navigating dangerous alien-infested worlds filled with traps, mysterious environments, and hostile creatures.
 
-Scene setup for multiple levels
+The project was created as a **game development assignment/sample project** to practice Unity fundamentals, level design, player systems, and environment creation.
 
-Background & environment imported
+---
 
-Player character added to scenes
+# ✨ Features
 
-Camera following player
+## 🌍 Game Worlds
 
-Ground tiles & layouts placed
+* Forest Awakening
+* Crystal / Alien Forest
+* Desert Caves
+* Future Expansion Worlds
+* Final Boss Realm
 
-🔨 Currently Working On
+## ⚔️ Gameplay Elements
 
-Player movement (jumping, animation, sliding)
+* Smooth 2D platforming
+* Camera follow system
+* Environmental exploration
+* Alien-themed atmosphere
+* Trap & obstacle navigation
+* Multi-level scene setup
 
-Ground check system
+---
 
-Collision system
 
-Level design expansions
+```
 
-🎯 Upcoming Features
+---
 
-Enemy AI (ground + flying drones)
+# 🛠️ Built With
 
-Player animations (running, jumping)
+| Technology        | Usage                 |
+| ----------------- | --------------------- |
+| 🎮 Unity 6        | Game Engine           |
+| 💻 C#             | Gameplay Scripts      |
+| 🎨 Free 2D Assets | Environment & Sprites |
 
-Combat / damage system
+---
 
-Health bar
+# 📂 Project Structure
 
-End door / level transitions
-
-Power-ups
-
-UI & Menus
-
-Sound & Music
-
-Boss level
-
-🎮 Game Concept
-
-A dark world consumed by alien corruption.
-Nova must survive environments, avoid danger, destroy enemies, and escape through portals to reach the next level.
-
-Planned worlds:
-1️⃣ Forest Awakening
-2️⃣ Crystal / Alien Forest
-3️⃣ Desert Caves
-4️⃣ (Planned World)
-5️⃣ Final Boss Realm
-
-🛠️ Built With
-
-Unity 6
-
-C# Scripts
-
-Free 2D Art Assets
-
-📂 Project Structure
+```bash
 Assets/
- ├─ Scenes
- ├─ Scripts
- ├─ Sprites
- ├─ Prefabs
- ├─ UI
+├── Scenes
+├── Scripts
+├── Sprites
+├── Prefabs
+├── UI
+```
 
-🎮 How to Open
+---
 
-1️⃣ Clone Repository
+# 🚀 Getting Started
 
+## 1️⃣ Clone The Repository
+
+```bash
 git clone https://github.com/your-username/Awaken_in_Darkness_1.git
+```
 
+## 2️⃣ Open in Unity Hub
 
-2️⃣ Open Unity Hub
-3️⃣ Add Project → Select Folder
-4️⃣ Open Scene & Press Play
+* Launch Unity Hub
+* Click **Add Project**
+* Select the project folder
 
-👤 Developer
+## 3️⃣ Run The Game
 
-Developed by Adri (Adriyano Girma)
-Game Development Student Project
+* Open the main scene
+* Press ▶ Play
+
+---
+
+# 🎯 Learning Goals
+
+This project helped practice:
+
+* Unity scene management
+* 2D level design
+* Camera systems
+* Collision systems
+* Player mechanics
+* Game architecture basics
+
+---
+
+# 👨‍💻 Developer
+
+### Adriyano Girma (Adri)
+
+🎓 Software Engineering Student
+🎮 Game Development Enthusiast
+💡 Passionate about building games and interactive experiences
+
+---
+
+# ⭐ Future Improvements
+
+* Enemy AI systems
+* Combat mechanics
+* Health & damage systems
+* Advanced animations
+* UI & menu systems
+* Sound effects & background music
+* Boss battle mechanics
+
+---
+
+<p align="center">
+  <b>“Awaken in Darkness and survive the unknown.”</b>
+</p>
+
